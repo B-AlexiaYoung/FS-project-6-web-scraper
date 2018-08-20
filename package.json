@@ -1,0 +1,19 @@
+{
+  "name": "fsproject6webscraper",
+  "version": "1.0.0",
+  "description": "web scraper",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "json2csv": "^4.2.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
