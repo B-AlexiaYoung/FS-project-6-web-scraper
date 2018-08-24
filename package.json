@@ -4,7 +4,8 @@
   "description": "web scraper",
   "main": "scraper.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "start": "node scraper.js"
   },
   "author": "",
   "license": "MIT",
