@@ -13,7 +13,8 @@ let shirts = [];
 time = new Date;
 //set date
 getdate = new Date();
-let datetime = getdate.getFullYear() + "-" + getdate.getMonth() + "-" + getdate.getDate();
+//let datetime = getdate.getFullYear() + "-" + (getdate.getMonth()+1) + "-" + getdate.getDate();
+let datetime = getdate.toISOString().slice(0,10);
 //console.log(datetime);
 
 
@@ -114,7 +115,7 @@ function errorlog() {
     let timestamp = Date() + "\n";
     fs.appendFile('scraper-error.log', timestamp, function (err) {
         //console.log(timestamp)
-        if (err) {;
+        if (err) {
             console.log("scraper error logged");
         }
     });
