@@ -40,17 +40,18 @@ request(mainurl, function (err, response, html) {
         shirtDetails();
     }
     if (err) {
-        console.log(err.message);
+        //console.log(err.message);
         console.log(`Sorry, there seems to be a connection error:  ${err.message}`);
         errorlog();
     }
 
 });
 
+// individual shirt details
 function shirtDetails() {
     innerItems.forEach(function (index) {
         let shirturl = "http://www.shirts4mike.com/" + (index);
-        let shirty = shirturl;
+       // let shirty = shirturl;
 
         //request("http://www.shirts4mike.com/" + (index), function (err, response, html) {
         request({
@@ -72,7 +73,7 @@ function shirtDetails() {
 
                     })
                     let timenow = time.getTime();
-                    console.log(timenow);
+                    //console.log(timenow);
                     shirts.push({
                         title: titleholder,
                         price: priceholder,
@@ -80,10 +81,6 @@ function shirtDetails() {
                         url: shirturl,
                         time: timenow
                     })
-
-                    //
-                    console.log(shirts);
-
                 }
             })
     })
@@ -92,7 +89,7 @@ function shirtDetails() {
 // write to data file
 function makefile() {
     if (shirts.length > 0) {
-        console.log("write file");
+        //console.log("write file");
         try {
             const parser = new Json2csvParser(opts);
             const csv = parser.parse(shirts);
@@ -102,18 +99,21 @@ function makefile() {
                 }
                 console.log('shirts saved');
             });
-            console.log(csv);
+            //console.log(csv);
         } catch (err) {
             console.error(err);
         }
     }
 }
+
+
+//scraper-error log
 setTimeout(makefile, 2500);
 
 function errorlog() {
     let timestamp = Date() + "\n";
     fs.appendFile('scraper-error.log', timestamp, function (err) {
-        console.log(timestamp)
+        //console.log(timestamp)
         if (err) {;
             console.log("scraper error logged");
         }
