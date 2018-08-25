@@ -17,9 +17,7 @@ getdate = new Date();
 let datetime = getdate.toISOString().slice(0,10);
 //console.log(datetime);
 
-
 //check for data file
-
 fs.mkdir("data", function (err) {
     if (err) {
         console.log("Data file already created, so did not make a new one.")
@@ -27,8 +25,6 @@ fs.mkdir("data", function (err) {
         console.log("The file called data has been made.")
     }
 })
-
-
 
 //get url for inidviual tshirts
 request(mainurl, function (err, response, html) {
@@ -52,9 +48,7 @@ request(mainurl, function (err, response, html) {
 function shirtDetails() {
     innerItems.forEach(function (index) {
         let shirturl = "http://www.shirts4mike.com/" + (index);
-       // let shirty = shirturl;
 
-        //request("http://www.shirts4mike.com/" + (index), function (err, response, html) {
         request({
                 method: "GET",
                 uri: "http://www.shirts4mike.com/" + (index),
