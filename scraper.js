@@ -14,7 +14,7 @@ time = new Date;
 //set date
 getdate = new Date();
 //let datetime = getdate.getFullYear() + "-" + (getdate.getMonth()+1) + "-" + getdate.getDate();
-let datetime = getdate.toISOString().slice(0,10);
+let datetime = getdate.toISOString().slice(0, 10);
 //console.log(datetime);
 
 //check for data file
