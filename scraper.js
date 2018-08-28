@@ -38,8 +38,8 @@ request(mainurl, function (err, response, html) {
     }
     if (err) {
         //console.log(err.message);
-        console.log(`Sorry, there seems to be a connection error:  ${err.message}`);
-        errorlog();
+        console.log(`Sorry, there seems to be a connection error:-  ${err.message}`);
+        errorlog(err);
     }
 
 });
@@ -105,12 +105,12 @@ function makefile() {
 //scraper-error log
 setTimeout(makefile, 2500);
 
-function errorlog() {
-    let timestamp = Date() + "\n";
-    fs.appendFile('scraper-error.log', timestamp, function (err) {
+function errorlog(err) {
+    let timestamp = Date();
+    fs.appendFile('scraper-error.log', timestamp+` there has been a connection error: ${err.message}` + "\n", function (err) {
         //console.log(timestamp)
-        if (err) {
-            console.log("scraper error logged");
-        }
+        // if (err) {
+        //     console.log("there has been an error");
+        // }
     });
 }
